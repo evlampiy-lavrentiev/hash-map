@@ -154,10 +154,10 @@ public:
         , value(_value) {};
 
         iterator& operator++ () {
-            if (bucket == data_pointer->end()) {
-                // if we actually at the end: do strange shit
-                return *this;
-            }
+            // if (bucket == data_pointer->end()) {
+                // if we actually at the end: do strange shit maybe ?
+                // return *this;
+            // }
             ++value;
             if (value == bucket->end()) {
                 while (true) {
