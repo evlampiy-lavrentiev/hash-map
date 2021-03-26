@@ -13,7 +13,7 @@ private:
     // возможно если его изменить, то все поломается
     static const int resize_value = 2;  
     // а вот это значение точно можете менять как вам захочется(но только не 0)
-    static const size_t baseCapacity = 10;
+    static const size_t base_capacity = 10;
     std::vector<std::list<std::pair<const KeyType, ValueType>>> data;
     size_t value_count = 0;
     Hash hasher;
@@ -32,14 +32,14 @@ private:
 public:
     explicit HashMap(Hash _hasher = Hash())
     : hasher(_hasher) {
-        data.resize(baseCapacity);
+        data.resize(base_capacity);
     }
 
     template<typename iter>
     HashMap(iter begin, iter end, Hash _hasher = Hash())
     : hasher(_hasher) {
         hasher = _hasher;
-        data.resize(baseCapacity);
+        data.resize(base_capacity);
         while (begin != end) {
             insert(*begin++);
         }
@@ -47,7 +47,7 @@ public:
 
     HashMap(const std::initializer_list<std::pair<const KeyType, ValueType>>& out, Hash _hasher = Hash())
     : hasher(_hasher) {
-        data.resize(baseCapacity);
+        data.resize(base_capacity);
         auto iter = out.begin();
         while (iter != out.end()) {
             insert(*iter++);
@@ -354,7 +354,7 @@ public:
     } */
     void clear() {
         data.clear();
-        data.resize(baseCapacity);
+        data.resize(base_capacity);
         value_count = 0;
     }
 };
